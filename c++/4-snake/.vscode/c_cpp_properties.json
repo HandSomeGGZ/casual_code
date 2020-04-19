@@ -1,0 +1,31 @@
+{
+    "configurations": [
+        {
+            "name": "Win32",
+            "includePath": [
+                "${workspaceFolder}/**",
+                "C:/work/Microsoft VS Code/MinGW/mingw64/include",
+                "C:/work/Microsoft VS Code/MinGW/mingw64/x86_64-w64-mingw32/include",
+                "C:/work/Microsoft VS Code/MinGW/mingw64/lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++",
+                 "C:/work/Microsoft VS Code/MinGW/mingw64/lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++/tr1"
+            ],
+            "defines": [
+                "_DEBUG",
+                "UNICODE",
+                "_UNICODE"
+            ],
+            "browse": {
+                "path": [
+                    "${workspaceFolder}/**",
+                    "C:/work/Microsoft VS Code/MinGW/mingw64/include",
+                    "C:/work/Microsoft VS Code/MinGW/mingw64/lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++",
+                    "C:/work/Microsoft VS Code/MinGW/mingw64/lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++/tr1"
+                ],
+                "limitSymbolsToIncludedHeaders": true,
+                "databaseFilename": ""
+            },
+            "intelliSenseMode": "msvc-x64"
+        }
+    ],
+    "version": 4
+}

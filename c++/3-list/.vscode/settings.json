@@ -1,0 +1,12 @@
+{
+    "files.associations": {
+        "iosfwd": "cpp",
+        "iostream": "cpp",
+        "matrix.h": "c",
+        "string": "c",
+        "stdio.h": "c",
+        "new": "cpp",
+        "ostream": "cpp",
+        "list": "cpp"
+    }
+}
