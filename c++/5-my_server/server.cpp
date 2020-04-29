@@ -126,17 +126,31 @@ int init_server()   //绑定ip和端口等
 
         if(fork()==0)	//子进程 
         {	
+            //创建线程
             if((recvbytes = recv( client_fd,buf_rev,BUFFER_SIZE,0)) == -1)      //阻塞接收，等待用户登录
             {
                 cout << "login  faild"<<endl;
             }
             if(recvbytes>0)
-            {
+            {                               //对数据进行解析提取
                 buf_rev[recvbytes]='\0';
                 cout << buf_rev<<endl;      //可分别对账号密码提取，实现密码登录
+                
+                string operation=&buf_rev[4];
+                
                 buf_rev[4]='\0';
+                string user_id = buf_rev;
             }
-            string user_id = buf_rev;
+            
+            switch (opration)
+            {
+                case "login":/*验证密码*/break;
+                case "register":/*账号密码写入注册文件*/break;
+                default:break;
+            }
+            //验证密码和账户 在此对login 和register进行处理
+
+            send(client_fd,"login success",14,0);        //告知客户端登录成功
             //User u_t(user_id);
             string fifo_path="/tmp/"+user_id;
             //用户上线就创建自己的接收管道，当写入管道不存在说明此用户不存在
@@ -160,7 +174,8 @@ int init_server()   //绑定ip和端口等
                 {
                     //写入des_ID的管道
                     buf_rev[recvbytes]='\0';
-                    string message=&buf_rev[10];
+                    string message=&buf_rev[9];
+                    message=user_id+message;        //告诉目标用户是谁发的消息
                     buf_rev[9]='\0';
                     string des_id=&buf_rev[5];
                     cout << "des_user:"+des_id<<endl <<"message:"+message<<endl;
